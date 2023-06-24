@@ -51,13 +51,6 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           
-      - name: Despliegue de la aplicación en Azure Web App
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: nombre-de-tu-aplicacion
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ./path/to/publish/folder
-
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -65,4 +58,4 @@ jobs:
           app-name: 'ShopInventorys'
           slot-name: 'production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_1234 }}
-          package: .
+          package: ./path/to/publish/folder
