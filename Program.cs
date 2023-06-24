@@ -4,7 +4,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // Configure CORS
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowOrigin", builder =>
@@ -15,15 +14,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(builder =>
-    {
-        builder.AllowAnyOrigin() // Permite solicitudes desde cualquier origen
-            .AllowAnyHeader()
-            .AllowAnyMethod();
-    });
-});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -39,8 +29,6 @@ app.UseRouting();
 
 // Enable CORS
 app.UseCors("AllowOrigin");
-app.UseCors();
-
 
 app.UseAuthorization();
 
